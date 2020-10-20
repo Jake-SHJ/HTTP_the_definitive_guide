@@ -62,3 +62,37 @@
 
    - 애플리케이션은 보통 하나의 작업을 수행하기 위해 여러 HTTP 트랜잭션을 수행한다.
    - 웹페이지는 보통 하나의 리소스가 아닌 리소스의 모음이다.
+
+### 5. 메시지
+
+- HTTP 메시지는 단순한 문자열이며 일반 텍스트이기 때문에 사람이 읽고 쓰기 쉽다.
+- 웹 클라이언트에서 웹 서버로 보낸 HTTP 메세지를 요청 메시지, 그 반대로 가는 메시지는 응답 메시지라고 부른다.
+- HTTP 메시지는 시작줄, 헤더, 본문으로 이루어져있다.
+- 시작줄은 요청인 경우 무엇을 해야하는지, 응답인 경우 무슨 일이 일어났는지 나타낸다.
+- 헤더는 0개 이상의 헤더 필드로 이루어져있다. 각 헤더 필드는 :으로 구분된 하나의 이름과 하나의 값의 쌍으로 이루어져있다.
+- 본문은 요청의 경우 데이터를 실어 보내며, 응답인 경우 클라이언트로 데이터를 반환한다.
+
+1. 간단한 메시지의 예
+
+   - 요청 메시지
+
+   ```
+   GET /tools.html HTTP/1.0  // 시작줄
+   User-agent: Mozilla/4.75 [en] (win98; U) // 헤더
+   Host: www.joes-hardware.com
+   Accept: text/html, image/gif, image/jpeg
+   Accept-language: en
+   // 본문 없음
+   ```
+
+   - 응답 메시지
+
+   ```
+   HTTP/1.0 200 OK // 시작줄 (상태코드)
+   Date: Sun 01 Oct 2000 23:25:17 GMT // 헤더
+   Server: Apache/1.3.11 BSafe-SSL/1.38 (Unix)
+   Last-modified: Tue, 04 Jul 2000 09:46:21 GMT
+   Content-length: 403
+   Content-type: text/html
+   <html>...</html> // 본문
+   ```
